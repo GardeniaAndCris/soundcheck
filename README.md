@@ -59,6 +59,16 @@ ONNX Runtime Web's multi-threaded WASM backend requires `crossOriginIsolated ===
 - After first download, the model is cached in IndexedDB so subsequent loads are instant and fully offline.
 - `scripts/download_model.py` / `scripts/convert_model.py` regenerate the ONNX model from scratch if needed (see file headers for usage).
 
+### Content authoring (offline)
+
+`scripts/generate_scenario.mjs` drafts a new branching dialogue scenario (for the "对话练习" conversation-practice mode, `src/data/conversations.ts`) by calling the Claude API once per invocation:
+
+```bash
+ANTHROPIC_API_KEY=... npm run generate:scenario -- "ordering food at a restaurant"
+```
+
+This is a **dev-time authoring tool only** — it never runs in the shipped app, and the deployed PWA has no dependency on it or on any LLM API. Output is written to `scripts/generated/<id>.json` (gitignored) as a draft for review — check the translations, IPA tips, and tone, then hand-copy it into the `CONVERSATIONS` array in `src/data/conversations.ts`. Nothing is auto-merged.
+
 ### Build quirks worth knowing
 
 - `onnxruntime-web` ships four WASM build variants (plain / `jsep` / `asyncify` / `jspi`). This project only imports the `onnxruntime-web/wasm` subpath (no WebGPU), so `scripts/copy-wasm.mjs` (a `postinstall` hook) copies **only** the plain variant into `public/ort-wasm/`. The `jsep` variant alone is 26.8MB, which exceeds Cloudflare Pages' 25MiB per-file limit — copying all four breaks deployment.
