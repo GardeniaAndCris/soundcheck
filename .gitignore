@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 local-models
+public/ort-wasm
 
 # Editor directories and files
 .vscode/*
