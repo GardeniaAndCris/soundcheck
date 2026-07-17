@@ -1,0 +1,252 @@
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 40px;
+}
+
+/* top bar */
+.topBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.exitBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.exitBtn:hover {
+  color: var(--text);
+}
+
+.scenarioLabel {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* AI turn */
+.aiZone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  width: 100%;
+}
+
+.bubble {
+  background: var(--surface);
+  border: 1.5px solid var(--surface-2);
+  border-radius: 14px;
+  padding: 16px 20px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.bubbleText {
+  font-size: 1.05rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.playBtn {
+  background: none;
+  border: 1px solid var(--surface-2);
+  color: var(--text-muted);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.playBtn:hover {
+  border-color: var(--good);
+  color: var(--good);
+}
+
+.translation {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  letter-spacing: 0.03em;
+}
+
+/* user choice list */
+.choiceZone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.choiceHint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.choiceBtn {
+  background: var(--surface);
+  border: 1.5px solid var(--surface-2);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.12s;
+}
+
+.choiceBtn:hover {
+  border-color: var(--good);
+}
+
+.choiceBtn:active {
+  transform: scale(0.98);
+}
+
+.choiceText {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.choiceTranslation {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* sentence zone (choice picked) */
+.sentenceZone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+
+.changeBtn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+}
+
+.changeBtn:hover {
+  color: var(--text);
+}
+
+/* results bar */
+.resultsBar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.resultsBar.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scoreBadge {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.scoreBadge strong {
+  font-size: 1.5rem;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  font-family: Georgia, serif;
+  margin-right: 1px;
+}
+
+.actionBtns {
+  display: flex;
+  gap: 8px;
+}
+
+.btnSecondary {
+  background: none;
+  border: 1px solid var(--surface-2);
+  color: var(--text-muted);
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.btnSecondary:hover {
+  border-color: var(--text-muted);
+  color: var(--text);
+}
+
+.btnPrimary {
+  background: var(--good);
+  border: none;
+  color: #0c1a13;
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.btnPrimary:hover {
+  opacity: 0.85;
+}
+
+/* finished */
+.finishedZone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.finishedTitle {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  color: var(--text);
+}
+
+.finishedHint {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}

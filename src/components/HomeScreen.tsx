@@ -3,9 +3,10 @@ import styles from './HomeScreen.module.css'
 interface Props {
   onSelectPractice: () => void
   onSelectDocument: () => void
+  onSelectConversation: () => void
 }
 
-export default function HomeScreen({ onSelectPractice, onSelectDocument }: Props) {
+export default function HomeScreen({ onSelectPractice, onSelectDocument, onSelectConversation }: Props) {
   return (
     <div className={styles.screen}>
       <div className={styles.wordmark}>
@@ -21,6 +22,10 @@ export default function HomeScreen({ onSelectPractice, onSelectDocument }: Props
         <button className={styles.card} type="button" onClick={onSelectDocument}>
           <div className={styles.cardTitle}>文档跟读</div>
           <div className={styles.cardDesc}>粘贴任意文本练习</div>
+        </button>
+        <button className={styles.card} type="button" onClick={onSelectConversation}>
+          <div className={styles.cardTitle}>对话练习</div>
+          <div className={styles.cardDesc}>情景对话 · 分支选择</div>
         </button>
       </div>
     </div>
