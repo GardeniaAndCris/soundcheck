@@ -10,9 +10,11 @@ const dest = join(root, 'public', 'ort-wasm')
 
 await mkdir(dest, { recursive: true })
 
-// Only copy the runtime files ORT needs: wasm binaries + worker mjs scripts
+// Only copy the plain WASM-only variant (no jsep/asyncify/jspi — this project
+// imports the 'onnxruntime-web/wasm' subpath, which doesn't use those).
+// The jsep variant alone exceeds Cloudflare Pages' 25 MiB per-file limit.
 const files = (await readdir(src)).filter(f =>
-  f.startsWith('ort-wasm-simd-threaded') && (f.endsWith('.wasm') || f.endsWith('.mjs'))
+  /^ort-wasm-simd-threaded\.(wasm|mjs)$/.test(f)
 )
 for (const f of files) {
   await copyFile(join(src, f), join(dest, basename(f)))
