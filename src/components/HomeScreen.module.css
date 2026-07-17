@@ -1,0 +1,68 @@
+.screen {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  padding: 24px;
+}
+
+.wordmark {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2.6rem;
+  letter-spacing: -0.04em;
+  color: var(--text);
+  line-height: 1;
+}
+
+.wordmark em {
+  font-style: normal;
+  color: var(--good);
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: -18px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: min(320px, 100%);
+}
+
+.card {
+  background: var(--surface);
+  border: 1.5px solid var(--surface-2);
+  border-radius: 14px;
+  padding: 18px 20px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.12s;
+}
+
+.card:hover {
+  border-color: var(--good);
+}
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.cardTitle {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.cardDesc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}

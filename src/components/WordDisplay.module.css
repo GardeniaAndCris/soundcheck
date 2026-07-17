@@ -1,0 +1,34 @@
+.display {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(1.55rem, 5.5vw, 2.2rem);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--text);
+}
+
+.word {
+  display: inline;
+  transition: color 0.4s ease;
+}
+
+.word.result {
+  cursor: pointer;
+}
+
+.word.good { color: var(--good); }
+.word.ok   { color: var(--ok); }
+.word.bad  { color: var(--bad); }
+
+.display.recording .word {
+  animation: breathe 2s ease-in-out infinite;
+}
+
+.display.recording .word:nth-child(odd) {
+  animation-delay: 0.4s;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
